@@ -1,8 +1,10 @@
-part of 'dotted_border.dart';
+import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter/material.dart';
+import 'package:path_drawing/path_drawing.dart';
 
 typedef PathBuilder = Path Function(Size);
 
-class _DashPainter extends CustomPainter {
+class DashPainter extends CustomPainter {
   final double strokeWidth;
   final List<double> dashPattern;
   final Color color;
@@ -12,7 +14,7 @@ class _DashPainter extends CustomPainter {
   final PathBuilder? customPath;
   final EdgeInsets padding;
 
-  _DashPainter({
+  DashPainter({
     this.strokeWidth = 2,
     this.dashPattern = const <double>[3, 1],
     this.color = Colors.black,
@@ -141,7 +143,7 @@ class _DashPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(_DashPainter oldDelegate) {
+  bool shouldRepaint(DashPainter oldDelegate) {
     return oldDelegate.strokeWidth != this.strokeWidth ||
         oldDelegate.color != this.color ||
         oldDelegate.dashPattern != this.dashPattern ||

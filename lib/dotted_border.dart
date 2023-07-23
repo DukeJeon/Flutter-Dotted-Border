@@ -1,9 +1,8 @@
 library dotted_border;
 
+import 'package:dotted_border/dash_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:path_drawing/path_drawing.dart';
-
-part 'dash_painter.dart';
 
 /// Add a dotted border around any [child] widget. The [strokeWidth] property
 /// defines the width of the dashed border and [color] determines the stroke
@@ -44,7 +43,7 @@ class DottedBorder extends StatelessWidget {
       children: <Widget>[
         Positioned.fill(
           child: CustomPaint(
-            painter: _DashPainter(
+            painter: DashPainter(
               padding: borderPadding,
               strokeWidth: strokeWidth,
               radius: radius,
